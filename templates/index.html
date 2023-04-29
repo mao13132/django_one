@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Проверка подключения страницы</h1>
+
+<form action="" method="">
+    <label>Ваше имя</label>
+    <input name="name">
+    <label>Телефон</label>
+    <input name="phone">
+    <button type="submit">Заказать</button>
+</form>
+
+<br>
+<br>
+<br>
+
+{% if objects_list %}
+<table border="1" width="100%" height="35" style="border-collapse:collapse;">
+    <tr>
+
+        <th bgcolor='#f7f7fa' style="text-align: center; vertical-align: middle;">№ Заказа</th>
+        <th bgcolor='#f7f7fa' style="text-align: center; vertical-align: middle;">Дата создания</th>
+        <th bgcolor='#f7f7fa' style="text-align: center; vertical-align: middle;">Имя</th>
+        <th bgcolor='#f7f7fa' style="text-align: center; vertical-align: middle;">Телефон</th>
+
+    </tr>
+    {% for obj in objects_list %}
+
+    <tr>
+        <th>{{ obj.id }}</th>
+        <th>{{ obj.order_dt }}</th>
+        <th>{{ obj.order_name }}</th>
+        <th>{{ obj.order_phone }}</th>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+{% else %}<h1>Таблица пустая</h1>
+{% endif %}
+
+</body>
+</html>
